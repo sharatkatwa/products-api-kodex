@@ -8,6 +8,15 @@ A simple Express and MongoDB API for managing products.
 https://products-api-kodex.vercel.app
 ```
 
+## Full Endpoint URLs
+
+```txt
+GET    https://products-api-kodex.vercel.app/api/products/all
+GET    https://products-api-kodex.vercel.app/api/products/:id
+POST   https://products-api-kodex.vercel.app/api/products/add
+PATCH  https://products-api-kodex.vercel.app/api/products/update/:id
+DELETE https://products-api-kodex.vercel.app/api/products/delete/:id
+```
 ## Endpoints
 
 ```txt
@@ -61,15 +70,6 @@ DELETE /api/products/delete/:id
 
 Deletes a product by id.
 
-## Full Endpoint URLs
-
-```txt
-GET    https://products-api-kodex.vercel.app/api/products/all
-GET    https://products-api-kodex.vercel.app/api/products/:id
-POST   https://products-api-kodex.vercel.app/api/products/add
-PATCH  https://products-api-kodex.vercel.app/api/products/update/:id
-DELETE https://products-api-kodex.vercel.app/api/products/delete/:id
-```
 
 ## Local Setup
 
