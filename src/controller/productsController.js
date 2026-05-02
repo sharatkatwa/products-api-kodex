@@ -8,9 +8,9 @@ const getAllProducts = async (req, res) => {
 };
 
 const getSingleProduct = async (req, res) => {
-  const { id } = req.body;
-  const product = await Product.findById(id);
-  return res.status(200).json({ status: 200, message: "product fetched successfully", product });
+  const { id } = req.params;
+  const singleProduct = await Product.findById(id);
+  return res.status(200).json({ status: 200, message: "product fetched successfully", singleProduct });
 };
 
 const createProduct = async (req, res) => {
