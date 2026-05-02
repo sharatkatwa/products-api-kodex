@@ -5,83 +5,30 @@ A simple Express and MongoDB API for managing products.
 ## Base URL
 
 ```txt
-http://localhost:3000/api/products
-```
-
-## Product Fields
-
-Each product can have these fields:
-
-```json
-{
-  "name": "Product name",
-  "price": 100,
-  "description": "Product description",
-  "category": "Product category",
-  "stock": 10
-}
+https://products-api-kodex.vercel.app
 ```
 
 ## Endpoints
 
-### Get All Products
+```txt
+GET    /api/products/all
+```
+
+Gets all products.
 
 ```txt
-GET /api/products/all
+GET    /api/products/:id
 ```
 
-Gets all products from the database.
-
-Example response:
-
-```json
-{
-  "status": 200,
-  "message": "products fetched successfully",
-  "products": []
-}
-```
-
-### Get Single Product
+Gets a single product by id.
 
 ```txt
-GET /api/products/:id
-```
-
-Gets one product by its MongoDB id.
-
-Example:
-
-```txt
-GET /api/products/65f123456789abcd12345678
-```
-
-Example response:
-
-```json
-{
-  "status": 200,
-  "message": "product fetched successfully",
-  "product": {
-    "_id": "65f123456789abcd12345678",
-    "name": "Laptop",
-    "price": 50000,
-    "description": "A good laptop",
-    "category": "Electronics",
-    "stock": 5
-  }
-}
-```
-
-### Create Product
-
-```txt
-POST /api/products/add
+POST   /api/products/add
 ```
 
 Creates a new product.
 
-Request body:
+Body:
 
 ```json
 {
@@ -93,38 +40,13 @@ Request body:
 }
 ```
 
-Example response:
-
-```json
-{
-  "status": 201,
-  "message": "Prduct created successfully",
-  "createdProduct": {
-    "_id": "65f123456789abcd12345678",
-    "name": "Laptop",
-    "price": 50000,
-    "description": "A good laptop",
-    "category": "Electronics",
-    "stock": 5
-  }
-}
-```
-
-### Update Product
-
 ```txt
-PATCH /api/products/update/:id
+PATCH  /api/products/update/:id
 ```
 
-Updates a product by its MongoDB id. You can send only the fields you want to update.
+Updates a product by id. Send only the fields you want to update.
 
-Example:
-
-```txt
-PATCH /api/products/update/65f123456789abcd12345678
-```
-
-Request body:
+Body example:
 
 ```json
 {
@@ -133,77 +55,30 @@ Request body:
 }
 ```
 
-Example response:
-
-```json
-{
-  "status": 200,
-  "message": "Product updated successfully",
-  "updatedProduct": {
-    "_id": "65f123456789abcd12345678",
-    "name": "Laptop",
-    "price": 45000,
-    "description": "A good laptop",
-    "category": "Electronics",
-    "stock": 8
-  }
-}
-```
-
-### Delete Product
-
 ```txt
 DELETE /api/products/delete/:id
 ```
 
-Deletes a product by its MongoDB id.
+Deletes a product by id.
 
-Example:
+## Full Endpoint URLs
 
 ```txt
-DELETE /api/products/delete/65f123456789abcd12345678
+GET    https://products-api-kodex.vercel.app/api/products/all
+GET    https://products-api-kodex.vercel.app/api/products/:id
+POST   https://products-api-kodex.vercel.app/api/products/add
+PATCH  https://products-api-kodex.vercel.app/api/products/update/:id
+DELETE https://products-api-kodex.vercel.app/api/products/delete/:id
 ```
 
-Example response:
-
-```json
-{
-  "status": 204,
-  "message": "Product deleted successfully",
-  "deletedProduct": {
-    "_id": "65f123456789abcd12345678",
-    "name": "Laptop",
-    "price": 45000,
-    "description": "A good laptop",
-    "category": "Electronics",
-    "stock": 8
-  }
-}
-```
-
-## Run Project
-
-Install dependencies:
+## Local Setup
 
 ```bash
 npm install
-```
-
-Start the server:
-
-```bash
 npm start
 ```
 
-The server runs on:
-
-```txt
-http://localhost:3000
-```
-
-## Environment Variables
-
-Create a `.env` file and add your MongoDB connection string:
+Create a `.env` file:
 
 ```txt
 MONGO_URI=your_mongodb_connection_string
